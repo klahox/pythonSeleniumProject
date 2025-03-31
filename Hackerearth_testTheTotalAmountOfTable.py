@@ -19,5 +19,6 @@ for price in listPrices:
 
 print("Current Total price => ",currentTotalPrices)
 print("Expected Total price => ",expectedTotalPrices)
+
 # Assert that The Subtotal price should be equal as the sum of item prices
 assert expectedTotalPrices == currentTotalPrices,"The current total prices should be equal as expected price" 
