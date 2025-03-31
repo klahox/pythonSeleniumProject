@@ -1,10 +1,15 @@
+#===================================================================================
+# Assert that The Subtotal price should be equal as the sum of item prices selected
+# https://www.saucedemo.com/
+#===================================================================================
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 # Initialize the WebDriver
 driver = webdriver.Chrome()
 
-# Open a website
+# Open the website
 driver.get("https://www.saucedemo.com/")
 
 
@@ -29,7 +34,6 @@ driver.find_element(By.ID, "postal-code").send_keys("12345")
 driver.find_element(By.ID, "continue").click()
 
 # Checkout Step One Page, check that subtotal amout is equal as the sum of item prices
-
 listElem =  driver.find_elements(By.XPATH, "//div[@data-test='inventory-item-price']")
 sumOfPrices = float()
 for item in listElem:
@@ -42,7 +46,7 @@ priceSubTotal =  float(driver.find_element(By.XPATH, "//div[@data-test='subtotal
 print("Subtotal Price",priceSubTotal)
 
 
-# Assert
+# Assert that The Subtotal price should be equal as the sum of item prices
 assert sumOfPrices == priceSubTotal,"The Subtotal price should be equal as the sum of item prices" 
 
 # Close the browser
